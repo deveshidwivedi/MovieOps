@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: movieops
+  labels:
+    app: movieops
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: movieops
+  template:
+    metadata:
+      labels:
+        app: movieops
+    spec:
+      containers:
+      - name: movieops
+        image: nasi101/netflix:latest
+        ports:
+        - containerPort: 80
